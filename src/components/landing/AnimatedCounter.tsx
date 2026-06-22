@@ -1,33 +1,38 @@
-import { animate, motion, useInView, useMotionValue, useTransform } from "motion/react";
-import { useEffect, useRef } from "react";
+import { animate, motion, useMotionValue, useTransform } from "motion/react";
+import { useEffect } from "react";
+
+type AnimatedCounterProps = {
+  to: number;
+  suffix?: string;
+  duration?: number;
+  decimals?: number;
+};
 
 export function AnimatedCounter({
   to,
   suffix = "",
   duration = 2,
   decimals = 0,
-}: {
-  to: number;
-  suffix?: string;
-  duration?: number;
-  decimals?: number;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+}: AnimatedCounterProps) {
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) =>
-    decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString()
-  );
+
+  const rounded = useTransform(count, (value) => {
+    return decimals > 0
+      ? value.toFixed(decimals)
+      : Math.round(value).toLocaleString();
+  });
 
   useEffect(() => {
-    if (inView) {
-      const controls = animate(count, to, { duration, ease: [0.22, 1, 0.36, 1] });
-      return () => controls.stop();
-    }
-  }, [inView, to, duration, count]);
+    const controls = animate(count, to, {
+      duration,
+      ease: [0.22, 1, 0.36, 1],
+    });
+
+    return () => controls.stop();
+  }, [count, to, duration]);
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span className="tabular-nums">
       <motion.span>{rounded}</motion.span>
       {suffix}
     </span>

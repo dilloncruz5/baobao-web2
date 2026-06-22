@@ -1,7 +1,7 @@
 import { motion, type Variants } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { FloatingShapes } from "./FloatingShapes";
-import baoVideo from "@/assets/bao-animation.mp4.asset.json";
+import baoVideo1 from "@/assets/bao-animation1.webm";
 
 const word: Variants = {
   hidden: { y: "110%", opacity: 0 },
@@ -24,7 +24,7 @@ export function HeroVideo() {
         transition={{ delay: 1.1, duration: 0.7 }}
         className="absolute top-28 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="glass-cream rounded-full px-4 py-1.5 text-xs tracking-wider uppercase text-primary flex items-center gap-2">
+        <div className="glass-cream rounded-full px-2 md:px-4 py-1 text-[10px] md:text-xs tracking-wide md:tracking-wider uppercase text-primary flex items-center gap-1 md:gap-2 w-full md:w-auto justify-center">
           <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
           Now serving across 6 cities in South India
         </div>
@@ -93,7 +93,7 @@ export function HeroVideo() {
               <div className="absolute inset-0 rounded-full blur-3xl opacity-70 bg-gradient-ember scale-90" />
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] glass-cream shadow-card">
                 <video
-                  src={baoVideo.url}
+                  src={baoVideo1}
                   autoPlay
                   muted
                   loop
@@ -109,15 +109,21 @@ export function HeroVideo() {
                 className="absolute -left-4 top-10 glass rounded-2xl px-4 py-3 shadow-soft"
               >
                 <div className="text-[10px] uppercase tracking-widest text-foreground/60">Stores</div>
-                <div className="font-display text-2xl text-ink">9 & growing</div>
+                <div className="font-display text-lg md:text-2xl text-ink">
+                  9 & growing
+                </div>
               </motion.div>
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -right-4 bottom-12 glass-cream rounded-2xl px-4 py-3 shadow-soft"
               >
-                <div className="text-[10px] uppercase tracking-widest text-primary/80">Born in</div>
-                <div className="font-display text-2xl text-ink">Chennai</div>
+                <div className="text-[10px] uppercase tracking-widest text-primary/80">
+                  Born in
+                </div>
+                <div className="font-display text-lg md:text-2xl text-ink">
+                  Chennai
+                </div>
               </motion.div>
             </div>
           </motion.div>

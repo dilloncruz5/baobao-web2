@@ -4,8 +4,8 @@
 
 @font-face {
   font-family: "Branding SF Narrow Black";
-  src: url("/__l5e/assets-v1/b1a42984-e253-492b-875b-ffa797bc7eba/BrandingSFNarrow-Black.ttf") format("truetype");
-  font-weight: 900;
+  src: url("./assets/Branding-SF Narrow-Black.ttf") format("truetype");
+  font-weight: 850;
   font-style: normal;
   font-display: swap;
 }
@@ -59,37 +59,72 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(0, -28px, 0) rotate(6deg); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -28px, 0) rotate(6deg);
+  }
 }
+
 @keyframes drift {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50% { transform: translate3d(40px,-30px,0) scale(1.08); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(40px, -30px, 0) scale(1.08);
+  }
 }
+
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 :root {
   --radius: 1rem;
 
   /* brand */
-  --background: oklch(0.995 0.003 95);          /* #FCFEFE */
-  --surface:    oklch(0.978 0.005 240);         /* #F7F9FB */
-  --cream:      oklch(0.972 0.024 75);          /* #FFF4E8 */
-  --foreground: oklch(0.34 0.04 230);           /* #2F4858 */
-  --ink:        oklch(0.22 0.035 230);
+  --background: oklch(0.995 0.003 95);
+  /* #FCFEFE */
+  --surface: oklch(0.978 0.005 240);
+  /* #F7F9FB */
+  --cream: oklch(0.972 0.024 75);
+  /* #FFF4E8 */
+  --foreground: oklch(0.34 0.04 230);
+  /* #2F4858 */
+  --ink: oklch(0.22 0.035 230);
 
-  --primary:             oklch(0.69 0.18 45);   /* #E96724 */
-  --primary-foreground:  oklch(0.99 0.01 80);
-  --ember:               oklch(0.74 0.17 50);   /* #FF8C42 */
-  --amber:               oklch(0.82 0.14 70);   /* #FFB347 */
-  --gold:                oklch(0.88 0.13 90);   /* #FFD166 */
+  --primary: oklch(0.69 0.18 45);
+  /* #E96724 */
+  --primary-foreground: oklch(0.99 0.01 80);
+  --ember: oklch(0.74 0.17 50);
+  /* #FF8C42 */
+  --amber: oklch(0.82 0.14 70);
+  /* #FFB347 */
+  --gold: oklch(0.88 0.13 90);
+  /* #FFD166 */
 
   --secondary: oklch(0.97 0.012 80);
   --secondary-foreground: oklch(0.34 0.04 230);
@@ -119,8 +154,14 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: auto; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -128,41 +169,71 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
   ::selection {
     background: var(--primary);
     color: var(--primary-foreground);
   }
 }
 
-@utility font-display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; }
-@utility text-gradient-warm {
-  background: var(--gradient-warm);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-@utility glass {
-  background: color-mix(in oklab, white 65%, transparent);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid color-mix(in oklab, white 70%, transparent);
-}
-@utility glass-cream {
-  background: color-mix(in oklab, #FFF4E8 70%, transparent);
-  backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid color-mix(in oklab, #FFB347 25%, transparent);
-}
-@utility shadow-soft { box-shadow: var(--shadow-soft); }
-@utility shadow-glow { box-shadow: var(--shadow-glow); }
-@utility shadow-card { box-shadow: var(--shadow-card); }
-@utility bg-gradient-warm { background-image: var(--gradient-warm); }
-@utility bg-gradient-soft { background-image: var(--gradient-soft); }
-@utility bg-gradient-ember { background-image: var(--gradient-ember); }
-@utility shimmer-mask {
-  background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, white 60%, transparent) 50%, transparent 70%);
-  background-size: 200% 100%;
-}
-@utility font-brand {
-  font-family: var(--font-brand);
-  font-weight: 900;
-  letter-spacing: -0.04em;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .text-gradient-warm {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: color-mix(in oklab, white 65%, transparent);
+    backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid color-mix(in oklab, white 70%, transparent);
+  }
+
+  .glass-cream {
+    background: color-mix(in oklab, #FFF4E8 70%, transparent);
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid color-mix(in oklab, #FFB347 25%, transparent);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .bg-gradient-warm {
+    background-image: var(--gradient-warm);
+  }
+
+  .bg-gradient-soft {
+    background-image: var(--gradient-soft);
+  }
+
+  .bg-gradient-ember {
+    background-image: var(--gradient-ember);
+  }
+
+  .shimmer-mask {
+    background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, white 60%, transparent) 50%, transparent 70%);
+    background-size: 200% 100%;
+  }
+
+  .font-brand {
+    font-family: var(--font-brand);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
 }

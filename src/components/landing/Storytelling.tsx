@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import baoVideo from "@/assets/bao-animation.mp4.asset.json";
+import baoVideo2 from "@/assets/bao-animation2.webm";
 
 const beats = [
   {
@@ -36,7 +36,7 @@ export function Storytelling() {
               className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-card"
             >
               <video
-                src={baoVideo.url}
+                src={baoVideo2}
                 autoPlay
                 muted
                 loop
