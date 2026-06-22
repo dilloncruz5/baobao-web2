@@ -11,13 +11,13 @@ const values = [
     tag: "02",
     title: "Sustainability",
     body: "We're committed to reducing our environmental impact — eco-friendly packaging, reduced food waste, smarter sourcing.",
-    accent: "bg-cream",
+    accent: "bg-amber/20 text-ink",
   },
   {
     tag: "03",
     title: "Accessibility",
     body: "Great food shouldn't break a budget. We work hard to keep our prices honest and our doors open to everyone.",
-    accent: "bg-card",
+    accent: "bg-foreground/10 text-ink",
   },
   {
     tag: "04",

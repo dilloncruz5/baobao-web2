@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { AnimatedCounter } from "./AnimatedCounter";
 
 const stats = [
-  { value: 9, suffix: "", label: "Stores across South India" },
+  { value: 10, suffix: "", label: "Stores across South India" },
   { value: 6, suffix: "", label: "Cities and counting" },
   { value: 7, suffix: "", label: "Signature bao flavours" },
   { value: 100, suffix: "%", label: "Indian-flavoured filling, every basket" },

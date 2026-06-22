@@ -24,7 +24,7 @@ export function Nav() {
           <span className="text-primary">Bao</span>
           <span className="text-ink">Bao</span>
         </Link>
-        <div className="hidden md:flex items-center gap-8 text-sm text-foreground/80">
+        <div className="flex items-center gap-4 text-sm text-foreground/80">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -41,7 +41,7 @@ export function Nav() {
           to="/franchise"
           className="group relative inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium shadow-glow overflow-hidden"
         >
-          <span className="relative z-10">Franchise with us</span>
+          <span className="relative z-10">Enquiry</span>
           <span aria-hidden className="relative z-10 transition-transform group-hover:translate-x-1">→</span>
           <span className="absolute inset-0 shimmer-mask animate-shimmer opacity-70" />
         </Link>

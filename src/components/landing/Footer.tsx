@@ -49,9 +49,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="py-12 flex flex-col items-center justify-center text-center select-none">
-          <span className="font-brand text-[28vw] md:text-[18vw] leading-[0.82] text-gradient-warm">Bao</span>
-          <span className="font-brand text-[28vw] md:text-[18vw] leading-[0.82] text-gradient-warm">Bao</span>
+        <div className="py-12 flex items-center justify-center text-center select-none">
+          <span className="font-brand text-[14vw] md:text-[9vw] leading-none text-gradient-warm">Bao Bao</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-background/50">
