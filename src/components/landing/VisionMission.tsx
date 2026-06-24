@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import g3 from "@/assets/bao-image-cropped.png";
-import g4 from "@/assets/gallery-4.jpg";
+import storyHero from "@/assets/ChatGPT_Image_Jun_23__2026_at_10_24_44_PM-removebg-preview.png";
 
 function Panel({
   eyebrow,
@@ -19,10 +19,12 @@ function Panel({
   tone: "cream" | "ink";
 }) {
   const dark = tone === "ink";
+
   return (
     <div
-      className={`relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-24 md:py-32 px-6 mx-auto max-w-[1400px] ${reverse ? "lg:[&>div:first-child]:order-2" : ""
-        }`}
+      className={`relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-24 md:py-32 px-6 mx-auto max-w-[1400px] ${
+        reverse ? "lg:[&>div:first-child]:order-2" : ""
+      }`}
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -31,22 +33,31 @@ function Panel({
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="lg:col-span-6"
       >
-        <div className={`text-xs uppercase tracking-[0.3em] mb-5 ${dark ? "text-amber" : "text-primary"}`}>
+        <div
+          className={`text-xs uppercase tracking-[0.3em] mb-5 ${
+            dark ? "text-amber" : "text-primary"
+          }`}
+        >
           {eyebrow}
         </div>
+
         <h2
-          className={`font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.95] ${dark ? "text-background" : "text-ink"
-            }`}
+          className={`font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.95] ${
+            dark ? "text-background" : "text-ink"
+          }`}
         >
           {title}
         </h2>
+
         <p
-          className={`mt-7 text-lg leading-relaxed max-w-lg ${dark ? "text-background/75" : "text-foreground/75"
-            }`}
+          className={`mt-7 text-lg leading-relaxed max-w-lg ${
+            dark ? "text-background/75" : "text-foreground/75"
+          }`}
         >
           {body}
         </p>
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -55,7 +66,12 @@ function Panel({
         className="lg:col-span-6"
       >
         <div className="relative aspect-[3/2] w-full rounded-[2rem] overflow-hidden bg-[#f0e8d8]">
-          <img src={image} alt="" className="h-full w-full object-cover object-center" loading="lazy" />
+          <img
+            src={image}
+            alt=""
+            className="h-full w-full object-cover object-center"
+            loading="lazy"
+          />
         </div>
       </motion.div>
     </div>
@@ -65,20 +81,30 @@ function Panel({
 export function VisionMission() {
   return (
     <>
+      {/* VISION */}
       <section className="relative bg-cream overflow-hidden">
         <div
           aria-hidden
           className="absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-gradient-ember opacity-25 blur-3xl animate-float-slow"
         />
+
         <Panel
           eyebrow="Our Vision"
-          title={<>Indian-flavoured baos, <em className="italic text-gradient-warm">for the world.</em></>}
+          title={
+            <>
+              Indian-flavoured baos,{" "}
+              <em className="italic text-gradient-warm">
+                for the world.
+              </em>
+            </>
+          }
           body="To become a global brand of Indian-flavoured baos while keeping bao more street-food than fine-dining dish. We aim to expand rapidly and make our unique fusion of Indian flavours with Asian baos accessible to people around the world."
           image={g3}
           tone="cream"
         />
       </section>
 
+      {/* MISSION */}
       <section className="relative bg-ink overflow-hidden">
         <div
           aria-hidden
@@ -88,14 +114,65 @@ export function VisionMission() {
               "radial-gradient(40% 40% at 80% 20%, #E96724 0%, transparent 60%), radial-gradient(50% 50% at 20% 80%, #FFB347 0%, transparent 60%)",
           }}
         />
-        <Panel
-          eyebrow="Our Mission"
-          title={<>Memorable, every <em className="italic text-gradient-warm">single basket.</em></>}
-          body="To provide a unique and memorable dining experience by offering delicious, flavourful baos. We are committed to using only high-quality ingredients and providing excellent customer service — and to keeping prices affordable so that great food stays accessible to everyone."
-          image={g4}
-          reverse
-          tone="ink"
-        />
+
+        <div className="relative flex flex-col lg:flex-row items-center overflow-hidden max-w-[1600px] mx-auto">
+
+          {/* IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex-shrink-0"
+          >
+            <div
+              aria-hidden
+              className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, #FFB347 0%, #E96724 40%, transparent 70%)",
+                opacity: 0.18,
+                filter: "blur(64px)",
+              }}
+            />
+
+            <img
+              src={storyHero}
+              alt="Bao Bao"
+              className="relative block w-full lg:w-auto lg:max-h-[620px] lg:-ml-8"
+              style={{ objectFit: "contain" }}
+              loading="lazy"
+            />
+          </motion.div>
+
+          {/* TEXT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="py-24 md:py-32 px-8 lg:px-16 xl:px-20 lg:flex-1"
+          >
+            <div className="text-xs uppercase tracking-[0.3em] mb-5 text-amber">
+              Our Mission
+            </div>
+
+            <h2 className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.95] text-background">
+              Memorable, every{" "}
+              <em className="italic text-gradient-warm">
+                single basket.
+              </em>
+            </h2>
+
+            <p className="mt-7 text-lg leading-relaxed max-w-lg text-background/75">
+              To provide a unique and memorable dining experience by offering
+              delicious, flavourful baos. We are committed to using only
+              high-quality ingredients and providing excellent customer service
+              — and to keeping prices affordable so that great food stays
+              accessible to everyone.
+            </p>
+          </motion.div>
+        </div>
       </section>
     </>
   );
